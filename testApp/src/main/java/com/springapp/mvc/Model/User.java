@@ -52,4 +52,8 @@ public class User extends BasicDBObject {
         this.email = email;
         this.put("email", this.email);
     }
+
+    public int getTypeAccount() {
+        return this.typeAccount;
+    }
 }

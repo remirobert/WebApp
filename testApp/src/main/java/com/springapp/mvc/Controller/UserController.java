@@ -15,11 +15,14 @@ import com.springapp.mvc.Model.User;
 import com.springapp.mvc.Model.Account;
 import com.springapp.mvc.Service.AccountService;
 
+import javax.servlet.http.HttpSession;
+
 @Controller
 public class UserController {
     @RequestMapping(value="/account/signin", method = RequestMethod.POST)
     public String signInUser(@RequestParam("email") String email,
                              @RequestParam("password") String password,
+                             HttpSession session,
                              ModelMap model) {
 
         UserService userService = new UserService();
@@ -28,21 +31,30 @@ public class UserController {
 
         if ((currentUser = userService.isUserExist(email)) == null) {
             System.out.println("User doenst't exist");
-            return "signin";
+            return "Connection/signin";
         }
 
         if (!accountService.checkPassword(userService.getIdUser(currentUser), password)) {
             System.out.println("password wrong");
-            return "signin";
+            return "Connection/signin";
         }
-        else {
-            System.out.println("items");
-            model.addAttribute("currentuser", currentUser);
-            return "redirect:/items";
-        }
+
 
 
         //return "account";
+        session.setAttribute("user", currentUser);
+
+        User userSession = (User)session.getAttribute("user");
+
+        System.out.println("OKKAY debug1");
+        model.addAttribute("firstName", userSession.getFirstName());
+
+        System.out.println("OKKAY debug2" + userSession.getFirstName());
+
+        if (currentUser.getTypeAccount() == 1)
+            return "redirect:/items";
+
+        return "redirect:/admin/index";
     }
 
     @RequestMapping(value="/account/signup", method = RequestMethod.POST)
@@ -57,13 +69,13 @@ public class UserController {
 
         if (userService.isUserExist(email) != null) {
             System.out.println("User already exist");
-            return "signup";
+            return "Connection/signup";
         }
         userService.addUser(newUser);
 
         String idCurrentClient = null;
         if ((idCurrentClient = userService.getIdUser(newUser)) == null) {
-            return "signup";
+            return "Connection/signup";
         }
 
         Account newAccount = new Account(idCurrentClient, password);

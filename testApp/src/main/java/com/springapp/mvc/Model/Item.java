@@ -10,6 +10,8 @@ public class Item extends BasicDBObject {
 
     private String nameItem;
     private String price;
+    private String description;
+    private String imageUrl;
     private Integer quantity;
 
     public Item(String nameItem, String price, Integer quantity) {

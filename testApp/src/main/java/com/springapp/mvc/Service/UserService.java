@@ -71,7 +71,6 @@ public class UserService {
             System.out.println("=> ID USER : " + data);
             return data;
         }
-
         return null;
     }
 }
