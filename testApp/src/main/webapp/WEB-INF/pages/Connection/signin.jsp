@@ -10,14 +10,20 @@
 <head>
     <title></title>
 </head>
+<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
 <body>
 
 <h1>Sign in</h1>
 
-<form action="/account/signin" method="post">
-  <input type="text" id="email" name="email" placeholder="Email"/>
-  <input type="text" id="password" name="password" placeholder="Password"/>
-  <input type="submit" value="Submit"/>
+<form class="pure-form" action="/account/signin" method="post">
+  <fieldset>
+
+    <input type="email" placeholder="Email">
+    <input type="password" placeholder="Password">
+
+
+    <button type="submit" class="pure-button pure-button-primary">Sign in</button>
+  </fieldset>
 </form>
 
 </body>

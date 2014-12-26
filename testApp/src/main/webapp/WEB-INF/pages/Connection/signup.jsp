@@ -9,15 +9,22 @@
 <html>
 <head>
     <title>Sign in</title>
+  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
 </head>
 <body>
 
-<form action="/account/signup" method="post">
-  <input type="text" id="firstName" name="firstName" placeholder="First name"/>
-  <input type="text" id="lastName" name="lastName" placeholder="Last name"/>
-  <input type="text" id="email" name="email" placeholder="Email"/>
-  <input type="text" id="password" name="password" placeholder="Password"/>
-  <input type="submit" value="Submit"/>
+<form class="pure-form">
+  <fieldset class="pure-group">
+    <input type="text" id="firstName" class="pure-input-1-2" placeholder="Username">
+    <input type="text" id="lastName" class="pure-input-1-2" placeholder="Password">
+    <input type="email" id="email" class="pure-input-1-2" placeholder="Email">
+  </fieldset>
+
+  <fieldset class="pure-group">
+    <input type="text" id="password" class="pure-input-1-2" placeholder="password">
+  </fieldset>
+
+  <button type="submit" class="pure-button pure-input-1-2 pure-button-primary">Sign in</button>
 </form>
 
 
