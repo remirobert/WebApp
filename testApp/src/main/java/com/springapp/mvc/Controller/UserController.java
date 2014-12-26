@@ -15,11 +15,14 @@ import com.springapp.mvc.Model.User;
 import com.springapp.mvc.Model.Account;
 import com.springapp.mvc.Service.AccountService;
 
+import javax.servlet.http.HttpSession;
+
 @Controller
 public class UserController {
     @RequestMapping(value="/account/signin", method = RequestMethod.POST)
     public String signInUser(@RequestParam("email") String email,
                              @RequestParam("password") String password,
+                             HttpSession session,
                              ModelMap model) {
 
         UserService userService = new UserService();
@@ -36,7 +39,12 @@ public class UserController {
             return "Connection/signin";
         }
 
-        model.addAttribute("firstName", currentUser.getFirstName());
+        session.setAttribute("user", currentUser);
+
+        User userSession = (User)session.getAttribute("user");
+
+        System.out.println("OKKAY debug");
+        model.addAttribute("firstName", userSession.getFirstName());
         if (currentUser.getTypeAccount() == 1)
             return "Client/account";
         return "redirect:/admin/index";

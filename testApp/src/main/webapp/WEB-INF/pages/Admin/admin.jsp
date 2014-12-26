@@ -17,7 +17,9 @@
 <h1>Welcolme Administration page</h1>
 
 <div class="pure-g">
-  <div class="pure-u-1-3"><p>Thirds</p></div>
+  <div class="pure-u-1-3">
+    <p>Thirds</p>
+  </div>
   <div class="pure-u-1-3"><p>Thirds</p></div>
   <div class="pure-u-1-3"><p>Thirds</p></div>
 </div>

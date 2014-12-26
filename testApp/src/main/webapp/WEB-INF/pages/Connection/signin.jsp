@@ -18,8 +18,8 @@
 <form class="pure-form" action="/account/signin" method="post">
   <fieldset>
 
-    <input type="email" placeholder="Email">
-    <input type="password" placeholder="Password">
+    <input type="email" id="email" name="email" placeholder="Email">
+    <input type="password" id="password" name="password" placeholder="Password">
 
 
     <button type="submit" class="pure-button pure-button-primary">Sign in</button>

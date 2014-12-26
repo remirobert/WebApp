@@ -15,13 +15,13 @@
 
 <form class="pure-form">
   <fieldset class="pure-group">
-    <input type="text" id="firstName" class="pure-input-1-2" placeholder="Username">
-    <input type="text" id="lastName" class="pure-input-1-2" placeholder="Password">
-    <input type="email" id="email" class="pure-input-1-2" placeholder="Email">
+    <input type="text" id="firstName" name="firstName" class="pure-input-1-2" placeholder="first name">
+    <input type="text" id="lastName" name="lastName" class="pure-input-1-2" placeholder="last name">
+    <input type="email" id="email" name="email" class="pure-input-1-2" placeholder="Email">
   </fieldset>
 
   <fieldset class="pure-group">
-    <input type="text" id="password" class="pure-input-1-2" placeholder="password">
+    <input type="text" id="password" name="password" class="pure-input-1-2" placeholder="password">
   </fieldset>
 
   <button type="submit" class="pure-button pure-input-1-2 pure-button-primary">Sign in</button>
