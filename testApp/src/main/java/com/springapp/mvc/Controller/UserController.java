@@ -37,7 +37,9 @@ public class UserController {
         }
 
         model.addAttribute("firstName", currentUser.getFirstName());
-        return "account";
+        if (currentUser.getTypeAccount() == 1)
+            return "account";
+        return "redirect:/admin/index";
     }
 
     @RequestMapping(value="/account/signup", method = RequestMethod.POST)
