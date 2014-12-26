@@ -35,9 +35,14 @@ public class UserController {
             System.out.println("password wrong");
             return "signin";
         }
+        else {
+            System.out.println("items");
+            model.addAttribute("currentuser", currentUser);
+            return "redirect:/items";
+        }
 
-        model.addAttribute("firstName", currentUser.getFirstName());
-        return "account";
+
+        //return "account";
     }
 
     @RequestMapping(value="/account/signup", method = RequestMethod.POST)
