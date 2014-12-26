@@ -16,12 +16,12 @@ public class HelloController {
 
 	@RequestMapping(value="/signin", method = RequestMethod.GET)
 	public String signin() {
-		return "signin";
+		return "Connection/signin";
 	}
 
 	@RequestMapping(value="/signup", method = RequestMethod.GET)
 	public String siginup() {
-		return "signup";
+		return "Connection/signup";
 	}
 
 }

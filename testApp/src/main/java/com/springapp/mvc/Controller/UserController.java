@@ -28,17 +28,17 @@ public class UserController {
 
         if ((currentUser = userService.isUserExist(email)) == null) {
             System.out.println("User doenst't exist");
-            return "signin";
+            return "Connection/signin";
         }
 
         if (!accountService.checkPassword(userService.getIdUser(currentUser), password)) {
             System.out.println("password wrong");
-            return "signin";
+            return "Connection/signin";
         }
 
         model.addAttribute("firstName", currentUser.getFirstName());
         if (currentUser.getTypeAccount() == 1)
-            return "account";
+            return "Client/account";
         return "redirect:/admin/index";
     }
 
@@ -54,13 +54,13 @@ public class UserController {
 
         if (userService.isUserExist(email) != null) {
             System.out.println("User already exist");
-            return "signup";
+            return "Connection/signup";
         }
         userService.addUser(newUser);
 
         String idCurrentClient = null;
         if ((idCurrentClient = userService.getIdUser(newUser)) == null) {
-            return "signup";
+            return "Connection/signup";
         }
 
         Account newAccount = new Account(idCurrentClient, password);
