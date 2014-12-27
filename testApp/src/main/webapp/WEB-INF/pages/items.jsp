@@ -22,10 +22,11 @@
 <body>
 <div class="pure-menu pure-menu-open pure-menu-horizontal">
   <ul>
-    <li><b>Bonjour ${firstName}</b></li>
+    <li><b>&nbsp;&nbsp;Bonjour ${firstName}</b></li>
     <li class="pure-menu-selected"><a href="items">Produits à vendre</a></li>
     <li><a href="#">Favoris</a></li>
     <li><a href="#">Achats en cours</a></li>
+    <li><a href="#" class="red-button">Panier</a></li>
   </ul>
 </div>
 
@@ -41,15 +42,17 @@
 
   </div>
 
+  <div class="button label-red">
+    <div class="center" fit>PARNIER +</div>
+    <paper-ripple fit></paper-ripple>
+  </div>
+
   <div class="button label-blue">
     <div class="center" fit>FAVORIS</div>
     <paper-ripple fit></paper-ripple>
   </div>
 
-  <div class="button">
-    <div class="center" fit>ACHETER</div>
-    <paper-ripple fit></paper-ripple>
-  </div>
+
 
 </div>
 
@@ -99,6 +102,18 @@
   .button > paper-ripple {
     border-radius: 2px;
     overflow: hidden;
+  }
+
+
+  .red-button {
+    background: #ff7000;
+    color: #fff!important;
+  }
+
+
+  .red-button:hover {
+    background: #ff1a00!important;
+    color: #fff!important;
   }
 
   .button.narrow {
@@ -274,7 +289,11 @@
   }
 
   .label-blue {
-    color: #4285f4;
+    color: #0e4df4;
+  }
+
+  .label-yellow {
+    color: #f4f100;
   }
 
   .label-red {
