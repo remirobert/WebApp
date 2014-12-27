@@ -10,16 +10,24 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <html>
+
 <head>
   <link rel="import" href="http://www.polymer-project.org/components/paper-ripple/paper-ripple.html">
   <link rel="import" href="http://www.polymer-project.org/components/core-icons/core-icons.html">
   <link rel="import" href="http://www.polymer-project.org/components/font-roboto/roboto.html">
+  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
 
-    <title></title>
+  <title></title>
 </head>
 <body>
-<h1>You are connected: ${firstName}</h1>
-
+<div class="pure-menu pure-menu-open pure-menu-horizontal">
+  <ul>
+    <li><b>Bonjour ${firstName}</b></li>
+    <li class="pure-menu-selected"><a href="items">Produits à vendre</a></li>
+    <li><a href="#">Favoris</a></li>
+    <li><a href="#">Achats en cours</a></li>
+  </ul>
+</div>
 
 <c:forEach items="${items}" var="item">
 <section>
@@ -28,8 +36,8 @@
 
   <div class="content">
     <div class="title">${item.nameItem}</div><br>
-    <div>${item.price}</div>
-    <div>${item.quantity}</div>
+    <div>${item.price} Euros</div>
+    <div>il en reste ${item.quantity} en stock</div>
 
   </div>
 
@@ -225,7 +233,7 @@
   .card, .dialog {
     position: relative;
     display: inline-block;
-    width: 300px;
+    width: 100%;
     height: 240px;
     vertical-align: top;
     background-color: #fff;
