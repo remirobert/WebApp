@@ -13,8 +13,7 @@
 </head>
 <body>
 
-
-<form class="pure-form">
+<form class="pure-form" action="/account/signup" method="post">
   <fieldset class="pure-group">
     <input type="text" id="firstName" name="firstName" class="pure-input-1-2" placeholder="first name">
     <input type="text" id="lastName" name="lastName" class="pure-input-1-2" placeholder="last name">

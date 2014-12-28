@@ -37,4 +37,13 @@ public class Item extends BasicDBObject {
     public String getPrice() {
         return this.price;
     }
+
+    public void setDescription(String description) {
+        this.description = description;
+        this.put("description", this.description);
+    }
+
+    public String getDescription() {
+        return this.description;
+    }
 }

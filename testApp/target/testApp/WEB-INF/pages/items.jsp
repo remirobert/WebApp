@@ -10,25 +10,16 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <html>
-
 <head>
   <link rel="import" href="http://www.polymer-project.org/components/paper-ripple/paper-ripple.html">
   <link rel="import" href="http://www.polymer-project.org/components/core-icons/core-icons.html">
   <link rel="import" href="http://www.polymer-project.org/components/font-roboto/roboto.html">
-  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
 
-  <title></title>
+    <title></title>
 </head>
 <body>
-<div class="pure-menu pure-menu-open pure-menu-horizontal">
-  <ul>
-    <li><b>&nbsp;&nbsp;Bonjour ${firstName}</b></li>
-    <li class="pure-menu-selected"><a href="items">Produits à vendre</a></li>
-    <li><a href="#">Favoris</a></li>
-    <li><a href="#">Achats en cours</a></li>
-    <li><a href="#" class="red-button">Panier</a></li>
-  </ul>
-</div>
+<h1>You are connected: ${firstName}</h1>
+
 
 <c:forEach items="${items}" var="item">
 <section>
@@ -37,14 +28,9 @@
 
   <div class="content">
     <div class="title">${item.nameItem}</div><br>
-    <div>${item.price} Euros</div>
-    <div>il en reste ${item.quantity} en stock</div>
+    <div>${item.price}</div>
+    <div>${item.quantity}</div>
 
-  </div>
-
-  <div class="button label-red">
-    <div class="center" fit>PARNIER +</div>
-    <paper-ripple fit></paper-ripple>
   </div>
 
   <div class="button label-blue">
@@ -52,7 +38,10 @@
     <paper-ripple fit></paper-ripple>
   </div>
 
-
+  <div class="button">
+    <div class="center" fit>ACHETER</div>
+    <paper-ripple fit></paper-ripple>
+  </div>
 
 </div>
 
@@ -102,18 +91,6 @@
   .button > paper-ripple {
     border-radius: 2px;
     overflow: hidden;
-  }
-
-
-  .red-button {
-    background: #ff7000;
-    color: #fff!important;
-  }
-
-
-  .red-button:hover {
-    background: #ff1a00!important;
-    color: #fff!important;
   }
 
   .button.narrow {
@@ -248,7 +225,7 @@
   .card, .dialog {
     position: relative;
     display: inline-block;
-    width: 100%;
+    width: 300px;
     height: 240px;
     vertical-align: top;
     background-color: #fff;
@@ -289,11 +266,7 @@
   }
 
   .label-blue {
-    color: #0e4df4;
-  }
-
-  .label-yellow {
-    color: #f4f100;
+    color: #4285f4;
   }
 
   .label-red {

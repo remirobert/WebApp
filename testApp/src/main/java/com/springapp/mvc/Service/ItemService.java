@@ -4,10 +4,10 @@ package com.springapp.mvc.Service;
  * Created by remirobert on 26/12/14.
  */
 
-import com.mongodb.DB;
-import com.mongodb.DBCollection;
+import com.mongodb.*;
 import com.springapp.mvc.Database;
 import com.springapp.mvc.Model.Item;
+import com.springapp.mvc.Model.User;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -15,7 +15,6 @@ import java.util.List;
 public class ItemService {
 
     private String collection = "Item";
-    private List<Item> allItems;
 
     public void addItem(Item newItem) {
         DB db = Database.getInstance().db;
@@ -28,15 +27,23 @@ public class ItemService {
     }
 
     public List<Item> getAllItems() {
-
-       // creation d'items Fakes
         List<Item> items = new LinkedList<Item>();
-        items.add(new Item("ballons", "2,2", 100));
-        items.add(new Item("chapeaux", "30", 0));
-        items.add(new Item("pantalons", "50", 100));
-        items.add(new Item("chemises", "1", 100));
-        items.add(new Item("chaussures", "0", 100));
-        items.add(new Item("iphone", "500", 10));
+
+        DBCollection table = Database.getInstance().db.getCollection(this.collection);
+
+        DBCursor cursor = table.find();
+
+        try {
+            while(cursor.hasNext()) {
+                DBObject userDetails = cursor.next();
+                Item currentItem = new Item((String)userDetails.get("nameItem"),
+                        (String)userDetails.get("price"),
+                        (Integer)userDetails.get("quantity"));
+                items.add(currentItem);
+            }
+        } finally {
+            cursor.close();
+        }
 
         return items;
     }

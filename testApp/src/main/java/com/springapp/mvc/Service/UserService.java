@@ -9,8 +9,12 @@ import com.mongodb.BasicDBObject;
 import com.mongodb.DB;
 import com.mongodb.DBCollection;
 import java.util.Date;
+import java.util.LinkedList;
+import java.util.List;
+
 import com.mongodb.DBCursor;
 import com.mongodb.MongoClient;
+import com.springapp.mvc.Model.Item;
 import com.springapp.mvc.Model.User;
 import com.springapp.mvc.Database;
 import com.sun.javafx.beans.IDProperty;
@@ -72,5 +76,34 @@ public class UserService {
             return data;
         }
         return null;
+    }
+
+    public List<User> getUserList() {
+        List<User> users = new LinkedList<User>();
+        DBCollection table = Database.getInstance().db.getCollection(this.collection);
+
+        BasicDBObject searchQuery = new BasicDBObject();
+        searchQuery.put("typeAccount", 1);
+
+        DBCursor cursor = table.find();
+
+        System.out.println("get Catch : " + cursor.count());
+
+        try {
+            while(cursor.hasNext()) {
+                DBObject userDetails = cursor.next();
+                User currentUser = new User((String)userDetails.get("firstName"),
+                        (String)userDetails.get("lastName"),
+                        (String)userDetails.get("email"),
+                        (Integer)userDetails.get("typeAccount"));
+                users.add(currentUser);
+                System.out.println("current user catach : " + currentUser.getFirstName());
+                //users.add((User)cursor.next());
+            }
+        } finally {
+            cursor.close();
+        }
+
+        return users;
     }
 }
