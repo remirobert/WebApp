@@ -23,10 +23,11 @@
 <div class="pure-menu pure-menu-open pure-menu-horizontal">
   <ul>
     <li><b>&nbsp;&nbsp;Bonjour ${firstName}</b></li>
-    <li class="pure-menu-selected"><a href="items">Produits à vendre</a></li>
-    <li><a href="#">Favoris</a></li>
-    <li><a href="#">Achats en cours</a></li>
-    <li><a href="#" class="red-button">Panier</a></li>
+    <li class="pure-menu-selected"><a href="/items">Produits à vendre</a></li>
+    <li><a href="/favoris">Favoris</a></li>
+    <li><a href="/historique">Historique</a></li>
+    <li><a href="/curent">Achats en cours</a></li>
+    <li><a href="/panier" class="red-button">Panier</a></li>
   </ul>
 </div>
 
