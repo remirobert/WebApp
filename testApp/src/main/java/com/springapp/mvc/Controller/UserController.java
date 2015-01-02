@@ -64,7 +64,6 @@ public class UserController {
                              @RequestParam("password") String password,
                              ModelMap model) {
 
-        System.out.println("Signup new user");
         User newUser = new User(firstName, lastName, email, 1);
         UserService userService = new UserService();
 
@@ -76,13 +75,13 @@ public class UserController {
 
         String idCurrentClient = null;
         if ((idCurrentClient = userService.getIdUser(newUser)) == null) {
-            System.out.println("idcurrent == null");
             return "Connection/signup";
         }
 
         Account newAccount = new Account(idCurrentClient, password);
         AccountService accountService = new AccountService();
         accountService.createAccount(newAccount);
+
         return "index";
     }
 }

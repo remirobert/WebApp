@@ -25,19 +25,19 @@
   <div class="pure-u-1-3">
     <h1>Users</h1>
 
-      <c:forEach items="${users}" var="currentUser">
-        <p>${currentUser.firstName}</p>
-      </c:forEach>
+    <c:forEach items="${users}" var="currentUser">
+      <p>${currentUser.firstName}</p>
+    </c:forEach>
   </div>
 
 
   <div class="pure-u-1-3">
     <h1>Items</h1>
-      <a href="/admin/itemCreation">Add new Item</a>
+    <a href="/admin/itemCreation">Add new Item</a>
 
-      <c:forEach items="${items}" var="currentItem">
-        <p>${currentItem.nameItem}</p>
-      </c:forEach>
+    <c:forEach items="${items}" var="currentItem">
+      <p>${currentItem.nameItem}</p>
+    </c:forEach>
 
   </div>
 
